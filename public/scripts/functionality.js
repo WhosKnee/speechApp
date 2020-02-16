@@ -129,7 +129,7 @@ $(document).ready(function () {
     var recognized_speech;
 
     function loadClient() {
-        gapi.client.setApiKey("");
+        gapi.client.setApiKey("AIzaSyAx6MldUcdZy7j2JAK20UCzp5zLSHpNhbs");
         return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/speech/v1p1beta1/rest")
             .then(function () { console.log("GAPI client loaded for API"); },
                 function (err) { console.error("Error loading GAPI client for API", err); });
@@ -192,6 +192,7 @@ $(document).ready(function () {
     }
     
     function render_incorrect_words(incorrectWords){
+        $('#incorrectWords').empty();
         incorrectWords.forEach(word => {
             $('#incorrectWords').append(
                 '<div class="incorrect" id='+ word + '><p class="incorrectP">' +  word.charAt(0).toUpperCase() + word.slice(1) + 
@@ -265,6 +266,25 @@ $(document).ready(function () {
         // and we also take the sentence they put in the form and save into a variable so we can compare with it later
         user_input = $("#main_form").serializeArray();
         user_lang = user_input[1].value;
+        // // based on the user value we also want to change the text to speech thing to give them the correct pronounciation
+        // text_to_speech = {
+        //     // "it-IT": "Google italiano",
+        //     "nl-NL": "Google Nederlands",
+        //     "pl-PL": "Google polski",
+        //     "id-ID": "Google Bahasa Indonesia",
+        //     "fr-FR": "Google français",
+        //     "es-ES": "Google español",
+        //     "en-US": "Google US English",
+        //     "de-DE": "Google Deutsch",
+        //     "pt-BR": "Google português do Brasil"
+        // }
+        // // now we check to see if the user lang is in our supported langs for text to speech and if it is
+        // // we change the select element that is used to make the api call
+        // if(text_to_speech.hasOwnProperty(user_lang)){
+        //     $("#voiceList").attr("value", text_to_speech[user_lang]);
+        // } else {
+        //     $('#incorrectWords').append("<p>Sorry correct pronounciation sounds are not available for this language</p>");
+        // }
         // load client
         loadClient();
     });

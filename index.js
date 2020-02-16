@@ -18,9 +18,7 @@ mongoose.connect("mongodb+srv://enounce:enouncePass@enunce-wx2pl.mongodb.net/tes
 app.get("/", function(req, res){
     name = 'husni';
     res.render("home.ejs", {nameEJS: name});
-    //res.render("usegoogle2.ejs");
-    //res.render("google_with_rec.ejs");
-
+    //res.render("practice.ejs");
 })
 
 app.get("/practice", function(req,res){

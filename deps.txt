@@ -1,2 +1,3 @@
 https://github.com/mattdiamond/Recorderjs
 https://github.com/addpipe/simple-recorderjs-demo
+https://github.com/Nitij/JavaScriptSpeechSynthesis
