@@ -37,7 +37,17 @@ app.get("/adventures", function(req,res){
     })
 })
 
-app.get("/adventureTemplate");
+app.get("/template/:id", function(req,res){
+    // find the campground with the provided id
+    var id = req.params.id;
+    Adventure.findById(req.params.id, function(err, foundAdventure){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("template.ejs", {adventure: foundAdventure});
+        }
+    })
+});
 
 app.get("/login", function(req,res){
     res.render("login.ejs");
