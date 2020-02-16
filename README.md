@@ -26,3 +26,6 @@ https://www.florin-pop.com/blog/2019/03/css-pulse-effect/
 Recording user audio from borwser:
 https://github.com/mattdiamond/Recorderjs
 https://github.com/addpipe/simple-recorderjs-demo
+
+Contributers:
+Husni Fareed, Muhammad Saad Raza, Mustafa Hafeez
