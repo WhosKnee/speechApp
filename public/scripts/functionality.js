@@ -129,7 +129,7 @@ $(document).ready(function () {
     var recognized_speech;
 
     function loadClient() {
-        gapi.client.setApiKey("AIzaSyD4VGSMBBi9t55mpV3sO3rId6N4cBJ24b4");
+        gapi.client.setApiKey("");
         return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/speech/v1p1beta1/rest")
             .then(function () { console.log("GAPI client loaded for API"); },
                 function (err) { console.error("Error loading GAPI client for API", err); });
@@ -144,7 +144,7 @@ $(document).ready(function () {
             "config": {
                 //"encoding": "MP3",                 ------not needed for WAV files
                 //"sampleRateHertz": 16000,          ____/
-                "languageCode": "en-US",
+                "languageCode": user_lang,
                 "enableWordConfidence": true,
                 "enableAutomaticPunctuation": false,
             }
@@ -243,7 +243,7 @@ $(document).ready(function () {
         transcript = recognized_speech.results[0].alternatives[0].transcript;
 
         // after we the google api call is executed and we get a response, we call the compare function with the user and google inputs
-        incorrect_words = compare(user_sentence[0].value.split(" "), transcript.split(" "));
+        incorrect_words = compare(user_input[0].value.split(" "), transcript.split(" "));
         // send the list of incorrect words form the compare function to the other function to update the dom
         render_incorrect_words(incorrect_words);
         correct_pronounciation(incorrect_words);
@@ -255,14 +255,16 @@ $(document).ready(function () {
     //===============CONNECT TO DOM, SET HANDLERS==================
     //=============================================================
 
-    var user_sentence = "";
+    var user_input;
+    var user_lang;
 
     $("#main_form").submit(function (event) {
         event.preventDefault();
         // here we start recording
         startRecording();
         // and we also take the sentence they put in the form and save into a variable so we can compare with it later
-        user_sentence = $("#main_form").serializeArray();
+        user_input = $("#main_form").serializeArray();
+        user_lang = user_input[1].value;
         // load client
         loadClient();
     });
@@ -276,20 +278,6 @@ $(document).ready(function () {
         // execute the gapi client which will the use the variables that we have stored values in
         execute();
     })
-
-
-
-
-
-    
-    // compare the expected string to the returned string from the Google API
-    var correct = ['the', 'island', 'is', 'surrounded', 'by', 'sharks']
-    var userInput = ["the", 'is', 'land', 'is', 'surrogate', 'by', 'sharpie', 'pen']
-    
-    // get back the expected words that were not heard by google
-    //var words = compare(correct, userInput);
-    
-    // print out those expected words and create audio to 
     
     
 });
