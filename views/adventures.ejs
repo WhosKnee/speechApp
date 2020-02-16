@@ -26,21 +26,23 @@
 
         <div class="row">
         <% i=0 %>
-        <% colors=["success", "danger", "primary"]    %> 
+        <% colors=["success", "danger", "primary"] %> 
         <% adventures.forEach(function(adventure){ %>
-            <div class="card border-<%=colors[i] %> col-md-4" style="margin: 1% 0 0 2%; max-width: 13em;">
+            <a class="card border-<%=colors[i] %> col-md-4" href="/template/<%= adventure._id%>" style="margin: 1% 0 0 2%; max-width: 13em;">
                 <div class="card-body text-<%=colors[i] %>">
                   <h5 class="card-title"><%= adventure.name %></h5>
                   <p class="card-text"><%= adventure.description %></p>
                 </div>
-              </div>
+            </a>
         <% i++; %>    
         <% if(i==3){i=0}%>
         <%})%>
         </div>
 
-
-
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>

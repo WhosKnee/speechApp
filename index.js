@@ -35,6 +35,18 @@ app.get("/adventures", function(req,res){
     })
 })
 
+app.get("/template/:id", function(req,res){
+    // find the campground with the provided id
+    var id = req.params.id;
+    Adventure.findById(req.params.id, function(err, foundAdventure){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("template.ejs", {adventure: foundAdventure});
+        }
+    })
+});
+
 app.get("/login", function(req,res){
     res.render("login.ejs");
 })
@@ -84,20 +96,21 @@ var adventureSchema = new mongoose.Schema({
 
 var Adventure = mongoose.model("Adventure", adventureSchema);
 
+/*
+var addAdventure = new Adventure({
+    id: 2,
+    name: "Down the RaBbiT hOlE",
+    words: ["Tsunami", "Island", "Coup", "Yacht", "Align"],
+    description: "And you thought Alice had it bad?",
+    paragraph: "Dan was in his yacht while travelling with some friends in the island of Sri Lanka. Little did he know there was a Tsunami on their way."
+})
 
-// var addAdventure = new Adventure({
-//     id: 2,
-//     name: "Down the RaBbiT hOlE",
-//     words: ["Tsunami", "Island", "Coup", "Yacht", "Align"],
-//     description: "And you thought Alice had it bad?",
-//     paragraph: "Dan was in his yacht while travelling with some friends in the island of Sri Lanka. Little did he know there was a Tsunami on their way."
-// })
-
-// addAdventure.save(function(err, item){
-//     if(err){
-//         console.log("word not created");
-//     } else {
-//         console.log("word saved");
-//         console.log(item);
-//     }
-// });
+addAdventure.save(function(err, item){
+    if(err){
+        console.log("word not created");
+    } else {
+        console.log("word saved");
+        console.log(item);
+    }
+});
+*/
