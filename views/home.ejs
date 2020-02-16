@@ -1,32 +1,100 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel='stylesheet' href="stylesheets/homepage.css">
+        <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
 
     </head>
 
     <body>
-        <nav style="background-color: #fcddb1;" class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">Improvify</a>
+       <nav style="background-color: #fcddb1;" class="navbar navbar-expand-lg navbar-light">
+          <a href="http://localhost:3000/">
+            <img class="aboutImage" src="img/logo.png" width="150" height="100">
+          </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-item nav-link active" id='home' href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link active" id="practice" href="/practice">Practice</a>
-                <a class="nav-item nav-link active" id="adventure" href="/adventures">Adventures</a>
-                <a class="nav-item nav-link active" id="profile" href="#">Profile</a>
+                <a class="nav-item nav-link active" id="Practice Now" href="/practice">Practice</a>
+                <a class="nav-item nav-link active" id="Adventures" href="#">Quizzes</a>
+                <a class="nav-item nav-link active" id="Profile" href="#">Profile</a>
               </div>
               <div  class="navbar-nav ml-auto">
-                <a class="nav-item nav-link active" id="login" href="#">Login</a>
-                <a class="nav-item nav-link active" id="signup" href="#">Signup</a>
+                <a class="nav-item nav-link active" id="Login" href="#">Login</a>
+                <a class="nav-item nav-link active" id="Sign Up" href="#">Signup</a>
               </div>
             </div>
           </nav>
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <div id="image" class="homepage">
+  <div class="centered">Bridging the Pronounciation Gap</div>
+      <img class="aboutImage" src="img/connection.png">
+
+
+
+  </div>
+      <form id="main_form">
+        <textarea id="user_input" name="user_input"></textarea>
+        <select id = "langs" name="user_lang">
+          <option value = "en-CA" selected="selected">English (Canada)</option>
+          <option value = "af-ZA">Afrikaans (South Africa)</option>
+          <option value = "az-AZ">Azerbaijani (Azerbaijan)</option>
+          <option value = "id-ID">Indonesian (Indonesia)</option>
+          <option value = "ms-MY">Malay (Malaysia)</option>
+          <option value = "ca-ES">Catalan (Spain)</option>
+          <option value = "cs-CZ">Czech (Czech Republic)</option>
+          <option value = "da-DK">Danish (Denmark)</option>
+          <option value = "de-DE">German (Germany)</option>
+          <option value = "en-US">English (United States)</option>
+          <option value = "es-ES">Spanish (Spain)</option>
+          <option value = "fil-PH">Filipino (Philippines)</option>
+          <option value = "fr-CA">French (Canada)</option>
+          <option value = "fr-FR">French (France)</option>
+          <option value = "gl-ES">Galician (Spain)</option>
+          <option value = "hr-HR">Croatian (Croatia)</option>
+          <option value = "zu-ZA">Zulu (South Africa)</option>
+          <option value = "is-IS">Icelandic (Iceland)</option>
+          <option value = "it-IT">Italian (Italy)</option>
+          <option value = "jv-ID">Javanese (Indonesia)</option>
+          <option value = "lv-LV">Latvian (Latvia)</option>
+          <option value = "lt-LT">Lithuanian (Lithuania)</option>
+          <option value = "hu-HU">Hungarian (Hungary)</option>
+          <option value = "nl-NL">Dutch (Netherlands)</option>
+          <option value = "nb-NO">Norwegian BokmÃ¥l (Norway)</option>
+          <option value = "pl-PL">Polish (Poland)</option>
+          <option value = "pt-BR">Portuguese (Brazil)</option>
+          <option value = "pt-PT">Portuguese (Portugal)</option>
+          <option value = "ro-RO">Romanian (Romania)</option>
+          <option value = "sk-SK">Slovak (Slovakia)</option>
+          <option value = "sl-SI">Slovenian (Slovenia)</option>
+          <option value = "su-ID">Sundanese (Indonesia)</option>
+          <option value = "sw-TZ">Swahili (Tanzania)</option>
+          <option value = "sw-KE">Swahili (Kenya)</option>
+          <option value = "fi-FI">Finnish (Finland)</option>
+          <option value = "sv-SE">Swedish (Sweden)</option>
+          <option value = "vi-VN">Vietnamese (Vietnam)</option>
+          <option value = "tr-TR">Turkish (Turkey)</option>
+        </select>
+        <button type="submit" id="start_pronounce">Start Pronounciation</button>
+      </form>
+      
+      <button id="end_pronounce">End Pronounciation</button>
+      <button id="evaluate">Evaluate Pronounciation</button>
+      
+      <div id="incorrectWords">
+
+      </div>
+      
+      <select id='voiceList' value='Google US English' hidden></select> <br><br>
+
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://apis.google.com/js/api.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+      <script src='./scripts/functionality.js'></script>
     </body>
 </html>
