@@ -1,17 +1,41 @@
 <html>
     <head>
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/template.css">
     </head>
 
     <body>
-        <div>
-            <%= adventure.name %>
-            <% adventure.words.forEach(function(word){ %>
-                <div> +  + </div>
-            <% }) %>
-            <%= adventure.paragraph %>
+        <nav style="background-color: #fcddb1; height: 10%" class="navbar navbar-expand-lg navbar-light">
+            <a href="http://localhost:3000/">
+              <img style='height: 100%; margin-left: -4%;' src="/img/logo2.png" width="150" height="100">
+            </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-item nav-link active" id="Practice Now" href="/practice">Practice</a>
+                  <a class="nav-item nav-link active" id="Adventures" href="/adventures">Adventures</a>
+                </div>
+              </div>
+            </nav>
 
+
+        <div>
+            <div id='title'><%= adventure.name %></div>
+            <br>
+            <div>Key Words:</div>
+            <% adventure.words.forEach(function(word){ %>
+                <div class="word"> <%= word %> </div>
+            <% }) %>
+            <br><br><br><br>
+            <div>
+                <%= adventure.paragraph %>
+            </div>
         </div>
 
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
