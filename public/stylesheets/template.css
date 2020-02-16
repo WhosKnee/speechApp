@@ -1,0 +1,12 @@
+#title {
+    font-size: 3em;
+}
+
+.word {
+    border: 1px #e0e0e0 solid;
+    float: left;
+    margin: 1%;
+    padding: 0.5% 1% 0.5% 1%;
+    border-radius: 4px;
+    font-size: 1.3em;
+}
