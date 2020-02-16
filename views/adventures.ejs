@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <nav style="background-color: #fcddb1;" class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">Improvify</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" id='home' href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" id="practice" href="/practice">Practice</a>
+                <a class="nav-item nav-link active" id="adventure" href="/adventures">Adventures</a>
+                <a class="nav-item nav-link active" id="profile" href="#">Profile</a>
+              </div>
+              <div  class="navbar-nav ml-auto">
+                <a class="nav-item nav-link active" id="login" href="#">Login</a>
+                <a class="nav-item nav-link active" id="signup" href="#">Signup</a>
+              </div>
+            </div>
+          </nav>
+
+
+        <div class="row">
+        <% i=0 %>
+        <% colors=["success", "danger", "primary"]    %> 
+        <% adventures.forEach(function(adventure){ %>
+            <div class="card border-<%=colors[i] %> col-md-4" style="margin: 1% 0 0 2%; max-width: 13em;">
+                <div class="card-body text-<%=colors[i] %>">
+                  <h5 class="card-title"><%= adventure.name %></h5>
+                  <p class="card-text"><%= adventure.description %></p>
+                </div>
+              </div>
+        <% i++; %>    
+        <% if(i==3){i=0}%>
+        <%})%>
+        </div>
+
+
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
