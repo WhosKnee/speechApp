@@ -244,7 +244,7 @@ $(document).ready(function () {
         transcript = recognized_speech.results[0].alternatives[0].transcript;
 
         // after we the google api call is executed and we get a response, we call the compare function with the user and google inputs
-        incorrect_words = compare(user_input[0].value.split(" "), transcript.split(" "));
+        incorrect_words = compare(user_input[1].value.split(" "), transcript.split(" "));
         // send the list of incorrect words form the compare function to the other function to update the dom
         render_incorrect_words(incorrect_words);
         correct_pronounciation(incorrect_words);
@@ -265,26 +265,7 @@ $(document).ready(function () {
         startRecording();
         // and we also take the sentence they put in the form and save into a variable so we can compare with it later
         user_input = $("#main_form").serializeArray();
-        user_lang = user_input[1].value;
-        // // based on the user value we also want to change the text to speech thing to give them the correct pronounciation
-        // text_to_speech = {
-        //     // "it-IT": "Google italiano",
-        //     "nl-NL": "Google Nederlands",
-        //     "pl-PL": "Google polski",
-        //     "id-ID": "Google Bahasa Indonesia",
-        //     "fr-FR": "Google français",
-        //     "es-ES": "Google español",
-        //     "en-US": "Google US English",
-        //     "de-DE": "Google Deutsch",
-        //     "pt-BR": "Google português do Brasil"
-        // }
-        // // now we check to see if the user lang is in our supported langs for text to speech and if it is
-        // // we change the select element that is used to make the api call
-        // if(text_to_speech.hasOwnProperty(user_lang)){
-        //     $("#voiceList").attr("value", text_to_speech[user_lang]);
-        // } else {
-        //     $('#incorrectWords').append("<p>Sorry correct pronounciation sounds are not available for this language</p>");
-        // }
+        user_lang = user_input[0].value;
         // load client
         loadClient();
     });

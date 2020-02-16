@@ -1,78 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-    Select Voice: 
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="stylesheets/last.css"> 
+        <link rel="shortcut icon" href="#">
+        <meta charset="UTF-8">
+    </head>
 
-    <select id="voiceList"><option data-lang="en-US" data-name="Microsoft Zira Desktop - English (United States)">Microsoft Zira Desktop - English (United States)</option>
-        <option data-lang="en-US" data-name="Microsoft David Desktop - English (United States)">Microsoft David Desktop - English (United States)</option>
-        <option data-lang="en-GB" data-name="Google UK English Female">Google UK English Female</option>
-        <option data-lang="en-GB" data-name="Google UK English Male">Google UK English Male</option>
-        <option data-lang="hi-IN" data-name="Google हिन्दी">Google हिन्दी</option>
-        <option data-lang="ja-JP" data-name="Google 日本語">Google 日本語</option>
-        <option data-lang="ko-KR" data-name="Google 한국의">Google 한국의</option>
-        <option data-lang="ru-RU" data-name="Google русский">Google русский</option>
-        <option data-lang="zh-CN" data-name="Google&nbsp;普通话（中国大陆）">Google&nbsp;普通话（中国大陆）</option>
-        <option data-lang="zh-HK" data-name="Google&nbsp;粤語（香港）">Google&nbsp;粤語（香港）</option>
-        <option data-lang="zh-TW" data-name="Google 國語（臺灣）">Google 國語（臺灣）</option>
-        <!-- =========================================== -->
-        <option data-lang="it-IT" data-name="Google italiano">Google italiano</option>
-        <option data-lang="nl-NL" data-name="Google Nederlands">Google Nederlands</option>
-        <option data-lang="pl-PL" data-name="Google polski">Google polski</option>
-        <option data-lang="id-ID" data-name="Google Bahasa Indonesia">Google Bahasa Indonesia</option>
-        <option data-lang="fr-FR" data-name="Google français">Google français</option>
-        <option data-lang="es-ES" data-name="Google español">Google español</option>
-        <option data-lang="en-US" data-name="Google US English">Google US English</option>
-        <option data-lang="de-DE" data-name="Google Deutsch">Google Deutsch</option>
-        <option data-lang="pt-BR" data-name="Google português do Brasil">Google português do Brasil</option>
-    </select>
+    <body>
 
-    <input id='txtInput' /> <br><br>    
-    <button id='btnSpeak'>Speak!</button>
 
-    <script>
-        var txtInput = document.querySelector('#txtInput');
-        var voiceList = document.querySelector('#voiceList');
-        var btnSpeak = document.querySelector('#btnSpeak');
-        var synth = window.speechSynthesis;
-        var voices = [];
+        <div id="incorrectWords">
 
-        PopulateVoices();
-        if(speechSynthesis !== undefined){
-            speechSynthesis.onvoiceschanged = PopulateVoices;
-        }
+        </div>
+        
+        <select id='voiceList' value='Google US English' hidden></select> <br><br>
 
-        btnSpeak.addEventListener('click', ()=> {
-            var toSpeak = new SpeechSynthesisUtterance(txtInput.value);
-            var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
-            voices.forEach((voice)=>{
-                if(voice.name === selectedVoiceName){
-                    toSpeak.voice = voice;
-                }
-            });
-            synth.speak(toSpeak);
-        });
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src='./scripts/lastfuncs.js'></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    </body>
 
-        function PopulateVoices(){
-            voices = synth.getVoices();
-            var selectedIndex = voiceList.selectedIndex < 0 ? 0 : voiceList.selectedIndex;
-            voiceList.innerHTML = '';
-            voices.forEach((voice)=>{
-                var listItem = document.createElement('option');
-                listItem.textContent = voice.name;
-                listItem.setAttribute('data-lang', voice.lang);
-                listItem.setAttribute('data-name', voice.name);
-                voiceList.appendChild(listItem);
-            });
-
-            voiceList.selectedIndex = selectedIndex;
-        }
-    </script>
-</body>
 </html>

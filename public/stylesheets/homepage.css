@@ -47,6 +47,61 @@ h6 {
 	animation: pulse 2s infinite;
 }
 
+.incorrect {
+    height: 2%;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 3%;
+    border: solid 1px #f0f0f0;
+    padding: 2% 2% 2% 2%;
+    font-size: 1.3em;
+    font-weight: 200;
+    position: relative;
+    border-radius: 7px;
+    max-width: 400px;
+    transition: background-color 0.4s;
+    background-color: #ffdede;
+}
+
+.playBack {
+    position: absolute;
+    top: 25%;
+    right: 15px;
+}
+
+.material-icons {
+    font-size: 1.5em;
+    color: #5a635a;
+}
+
+.incorrect:hover {
+    background-color: #ffb405;
+}
+
+.incorrectP {
+    margin:0;
+    margin-top: -2%;
+}
+
+@media (min-width:701px){
+    .playBack {
+        top: 25%;
+    }
+}
+
+
+@media (min-width:601px) and (max-width: 700px){
+    .playBack {
+        top: 8%;
+    }
+}
+
+@media (min-width:300px) and (max-width: 600px){
+    .playBack {
+        top: 4%;
+    }
+}
+
 @keyframes pulse {
 	0% {
 		transform: scale(0.95);
