@@ -1,5 +1,7 @@
 #title {
-    font-size: 3em;
+    font-size: 2em;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 .word {
@@ -9,4 +11,36 @@
     padding: 0.5% 1% 0.5% 1%;
     border-radius: 4px;
     font-size: 1.3em;
+}
+
+#container {
+    width: 60%;
+    float: left;
+    padding-left: 1%;
+}
+
+#incorrectWords {
+    float: left;
+    width:39%;
+    text-align: center;
+}
+
+.incorrect {
+    height: 5%;
+}
+
+.incorrectP {
+    margin-top: -5%;
+}
+
+#paragraph {
+    border: 1px rgb(243, 202, 145) solid;
+    border-radius: 4px;
+    padding: 2%;
+}
+
+button {
+    background-color: white;
+    border: 1px rgb(113, 191, 255) solid;
+    border-radius: 4px;
 }
