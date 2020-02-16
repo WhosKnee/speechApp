@@ -216,6 +216,11 @@ $(document).ready(function () {
                 $("#"+word).on("click",function(){
                     var toSpeak = new SpeechSynthesisUtterance(word);
                     var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
+                    voices.forEach((voice)=>{
+                        if(voice.name === selectedVoiceName){
+                            toSpeak.voice = voice;
+                        }
+                    });
                     synth.speak(toSpeak);
     
                     $(this).css("background-color", "#e8ffe9");
@@ -268,6 +273,24 @@ $(document).ready(function () {
         user_lang = user_input[0].value;
         // load client
         loadClient();
+        text_to_speech = {
+            // "it-IT": "Google italiano",
+            "nl-NL": "Google Nederlands",
+            "pl-PL": "Google polski",
+            "id-ID": "Google Bahasa Indonesia",
+            "fr-FR": "Google français",
+            "es-ES": "Google español",
+            "en-US": "Google US English",
+            "de-DE": "Google Deutsch",
+            "pt-BR": "Google português do Brasil"
+        }
+        // now we check to see if the user lang is in our supported langs for text to speech and if it is
+        // we change the select element that is used to make the api call
+        if(text_to_speech.hasOwnProperty(user_lang)){
+            $(`option[data-lang="${user_lang}"]`).attr('selected', 'selected');
+        } else {
+            $('#incorrectWords').append("<p>Sorry correct pronounciation sounds are not available for this language</p>");
+        }
     });
 
     $("#end_pronounce").click(function() {
