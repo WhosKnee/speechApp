@@ -193,6 +193,13 @@ $(document).ready(function () {
     
     function render_incorrect_words(incorrectWords){
         $('#incorrectWords').empty();
+        if(incorrectWords.length == 0){
+            $("#incorrectWords").append("Wow great job, no misakes!");
+        } else if (incorrectWords.length < 3){
+            $('#incorrectWords').append("Ah so close! ALmost there");
+        } else {
+            $('#incorrectWords').append("Seems like a lttle bit more practice could help out!");
+        }
         incorrectWords.forEach(word => {
             $('#incorrectWords').append(
                 '<div class="incorrect" id='+ word + '><p class="incorrectP">' +  word.charAt(0).toUpperCase() + word.slice(1) + 

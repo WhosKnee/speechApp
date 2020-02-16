@@ -1,9 +1,11 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="/stylesheets/template.css">
         <link rel="stylesheet" href="/stylesheets/last.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/template.css">
     </head>
 
     <body>
@@ -16,74 +18,73 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-item nav-link active" id="Practice Now" href="/practice">Practice</a>
                   <a class="nav-item nav-link active" id="Adventures" href="/adventures">Adventures</a>
                 </div>
               </div>
             </nav>
 
 
-        <div>
+        <div id='container'>
             <div id='title'><%= adventure.name %></div>
-            <br>
             <div>Key Words:</div>
             <% adventure.words.forEach(function(word){ %>
                 <div class="word"> <%= word %> </div>
             <% }) %>
-            <br><br><br><br>
-            <div>
+            <br><br><br>
+            Adventure to read:<br><br>
+            <div id='paragraph'>
                 <%= adventure.paragraph %>
             </div>
-        </div>
 
-        <form id="main_form">
-          <select id = "langs" name="user_lang">
-            <option value = "en-CA" selected="selected">English (Canada)</option>
-            <option value = "af-ZA">Afrikaans (South Africa)</option>
-            <option value = "id-ID">Indonesian (Indonesia)</option>
-            <option value = "ms-MY">Malay (Malaysia)</option>
-            <option value = "ca-ES">Catalan (Spain)</option>
-            <option value = "cs-CZ">Czech (Czech Republic)</option>
-            <option value = "da-DK">Danish (Denmark)</option>
-            <option value = "de-DE">German (Germany)</option>
-            <option value = "en-US">English (United States)</option>
-            <option value = "es-ES">Spanish (Spain)</option>
-            <option value = "fil-PH">Filipino (Philippines)</option>
-            <option value = "fr-CA">French (Canada)</option>
-            <option value = "fr-FR">French (France)</option>
-            <option value = "gl-ES">Galician (Spain)</option>
-            <option value = "hr-HR">Croatian (Croatia)</option>
-            <option value = "is-IS">Icelandic (Iceland)</option>
-            <!-- <option value = "it-IT">Italian (Italy)</option> -->
-            <option value = "jv-ID">Javanese (Indonesia)</option>
-            <option value = "lv-LV">Latvian (Latvia)</option>
-            <option value = "lt-LT">Lithuanian (Lithuania)</option>
-            <option value = "hu-HU">Hungarian (Hungary)</option>
-            <option value = "nl-NL">Dutch (Netherlands)</option>
-            <option value = "nb-NO">Norwegian BokmÃ¥l (Norway)</option>
-            <option value = "pl-PL">Polish (Poland)</option>
-            <option value = "pt-BR">Portuguese (Brazil)</option>
-            <option value = "pt-PT">Portuguese (Portugal)</option>
-            <option value = "ro-RO">Romanian (Romania)</option>
-            <option value = "sk-SK">Slovak (Slovakia)</option>
-            <option value = "sl-SI">Slovenian (Slovenia)</option>
-            <option value = "su-ID">Sundanese (Indonesia)</option>
-            <option value = "sw-TZ">Swahili (Tanzania)</option>
-            <option value = "sw-KE">Swahili (Kenya)</option>
-            <option value = "fi-FI">Finnish (Finland)</option>
-            <option value = "sv-SE">Swedish (Sweden)</option>
-            <option value = "vi-VN">Vietnamese (Vietnam)</option>
-            <option value = "tr-TR">Turkish (Turkey)</option>
-          </select>
-          <textarea id="user_input" name="user_input" hidden><%= adventure.paragraph %></textarea>
-          <br>
-          <h6>3. Click the Button Below to start recording</h6>
-          <button type="submit" id="start_pronounce">Start Recording</button>
-        </form>
-        <h6>4. Stop recording by clicking the button below</h6>
-        <button id="end_pronounce">End Recording</button>
-        <h6>5. Happy with your attempt? Click the button below to see your results!</h6>
-        <button id="evaluate">Evaluate Me!</button>
+            <form id="main_form">
+            <select id = "langs" name="user_lang" hidden>
+                <option value = "en-CA" selected="selected">English (Canada)</option>
+                <option value = "af-ZA">Afrikaans (South Africa)</option>
+                <option value = "id-ID">Indonesian (Indonesia)</option>
+                <option value = "ms-MY">Malay (Malaysia)</option>
+                <option value = "ca-ES">Catalan (Spain)</option>
+                <option value = "cs-CZ">Czech (Czech Republic)</option>
+                <option value = "da-DK">Danish (Denmark)</option>
+                <option value = "de-DE">German (Germany)</option>
+                <option value = "en-US">English (United States)</option>
+                <option value = "es-ES">Spanish (Spain)</option>
+                <option value = "fil-PH">Filipino (Philippines)</option>
+                <option value = "fr-CA">French (Canada)</option>
+                <option value = "fr-FR">French (France)</option>
+                <option value = "gl-ES">Galician (Spain)</option>
+                <option value = "hr-HR">Croatian (Croatia)</option>
+                <option value = "is-IS">Icelandic (Iceland)</option>
+                <!-- <option value = "it-IT">Italian (Italy)</option> -->
+                <option value = "jv-ID">Javanese (Indonesia)</option>
+                <option value = "lv-LV">Latvian (Latvia)</option>
+                <option value = "lt-LT">Lithuanian (Lithuania)</option>
+                <option value = "hu-HU">Hungarian (Hungary)</option>
+                <option value = "nl-NL">Dutch (Netherlands)</option>
+                <option value = "nb-NO">Norwegian BokmÃ¥l (Norway)</option>
+                <option value = "pl-PL">Polish (Poland)</option>
+                <option value = "pt-BR">Portuguese (Brazil)</option>
+                <option value = "pt-PT">Portuguese (Portugal)</option>
+                <option value = "ro-RO">Romanian (Romania)</option>
+                <option value = "sk-SK">Slovak (Slovakia)</option>
+                <option value = "sl-SI">Slovenian (Slovenia)</option>
+                <option value = "su-ID">Sundanese (Indonesia)</option>
+                <option value = "sw-TZ">Swahili (Tanzania)</option>
+                <option value = "sw-KE">Swahili (Kenya)</option>
+                <option value = "fi-FI">Finnish (Finland)</option>
+                <option value = "sv-SE">Swedish (Sweden)</option>
+                <option value = "vi-VN">Vietnamese (Vietnam)</option>
+                <option value = "tr-TR">Turkish (Turkey)</option>
+            </select>
+            <textarea id="user_input" name="user_input" hidden><%= adventure.paragraph %></textarea>
+            <br>
+            <h6 style="margin-bottom: 2%;">1. Click the Button Below to start recording</h6>
+            <button type="submit" id="start_pronounce">Start Recording</button>
+            </form>
+            <h6 style="margin-bottom: 1.5%;">2. Stop recording by clicking the button below</h6>
+            <button id="end_pronounce">End Recording</button>
+            <h6 style="margin-top: 1.7%;">3. Happy with your attempt? Click the button below to see your results!</h6>
+            <button id="evaluate">Evaluate Me!</button>
+        </div>
         <div id="incorrectWords">
 
         </div>
