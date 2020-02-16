@@ -37,6 +37,8 @@ app.get("/adventures", function(req,res){
     })
 })
 
+app.get("/adventureTemplate");
+
 app.get("/login", function(req,res){
     res.render("login.ejs");
 })
@@ -86,7 +88,7 @@ var adventureSchema = new mongoose.Schema({
 
 var Adventure = mongoose.model("Adventure", adventureSchema);
 
-
+/*
 var addAdventure = new Adventure({
     id: 2,
     name: "Down the RaBbiT hOlE",
@@ -103,3 +105,4 @@ addAdventure.save(function(err, item){
         console.log(item);
     }
 });
+*/

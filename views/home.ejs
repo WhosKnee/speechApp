@@ -7,9 +7,9 @@
     </head>
 
     <body>
-       <nav style="background-color: #fcddb1;" class="navbar navbar-expand-lg navbar-light">
+       <nav style="background-color: #fcddb1; height: 10%" class="navbar navbar-expand-lg navbar-light">
           <a href="http://localhost:3000/">
-            <img class="aboutImage" src="img/logo.png" width="150" height="100">
+            <img style='height: 100%; margin-left: -4%;' src="img/logo2.png" width="150" height="100">
           </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -17,27 +17,22 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
                 <a class="nav-item nav-link active" id="Practice Now" href="/practice">Practice</a>
-                <a class="nav-item nav-link active" id="Adventures" href="#">Quizzes</a>
-                <a class="nav-item nav-link active" id="Profile" href="#">Profile</a>
-              </div>
-              <div  class="navbar-nav ml-auto">
-                <a class="nav-item nav-link active" id="Login" href="#">Login</a>
-                <a class="nav-item nav-link active" id="Sign Up" href="#">Signup</a>
+                <a class="nav-item nav-link active" id="Adventures" href="/adventures">Adventures</a>
               </div>
             </div>
           </nav>
 
 
 
-  <div id="image" class="homepage">
-  <div class="centered">Bridging the Pronounciation Gap</div>
-      <img class="aboutImage" src="img/connection.png">
-
-
-
-  </div>
+  <div id="imageHolder" class="homepage">
+  <div class="centered">Bridging the Pronounciation Gap with ENUNCE!</div>
+      <img class="aboutImage" src="img/mainImage.png">
+      <br><br><br>
+      <h5 style="margin-bottom: 1%">Have a sentence that's been bugging you?</h5>
+      <h6>
+        1. Select the Language you want to type in
+      </h6>
       <form id="main_form">
-        <textarea id="user_input" name="user_input"></textarea>
         <select id = "langs" name="user_lang">
           <option value = "en-CA" selected="selected">English (Canada)</option>
           <option value = "af-ZA">Afrikaans (South Africa)</option>
@@ -78,11 +73,18 @@
           <option value = "vi-VN">Vietnamese (Vietnam)</option>
           <option value = "tr-TR">Turkish (Turkey)</option>
         </select>
-        <button type="submit" id="start_pronounce">Start Pronounciation</button>
+        <h6>2. Type in the text you would like to attempt</h6>
+        <textarea id="user_input" name="user_input">Supercalifragilisticexpialidocious</textarea>
+        <br>
+        <h6>3. Click the Button Below to start recording</h6>
+        <button type="submit" id="start_pronounce">Start Recording</button>
       </form>
+      <h6>4. Stop recording by clicking the button below</h6>
+      <button id="end_pronounce">End Recording</button>
+      <h6>5. Happy with your attempt? Click the button below to see your results!</h6>
+      <button id="evaluate">Evaluate Me!</button>
+  </div>
       
-      <button id="end_pronounce">End Pronounciation</button>
-      <button id="evaluate">Evaluate Pronounciation</button>
       
       <div id="incorrectWords">
 
