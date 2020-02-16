@@ -85,19 +85,19 @@ var adventureSchema = new mongoose.Schema({
 var Adventure = mongoose.model("Adventure", adventureSchema);
 
 
-var addAdventure = new Adventure({
-    id: 2,
-    name: "Down the RaBbiT hOlE",
-    words: ["Tsunami", "Island", "Coup", "Yacht", "Align"],
-    description: "And you thought Alice had it bad?",
-    paragraph: "Dan was in his yacht while travelling with some friends in the island of Sri Lanka. Little did he know there was a Tsunami on their way."
-})
+// var addAdventure = new Adventure({
+//     id: 2,
+//     name: "Down the RaBbiT hOlE",
+//     words: ["Tsunami", "Island", "Coup", "Yacht", "Align"],
+//     description: "And you thought Alice had it bad?",
+//     paragraph: "Dan was in his yacht while travelling with some friends in the island of Sri Lanka. Little did he know there was a Tsunami on their way."
+// })
 
-addAdventure.save(function(err, item){
-    if(err){
-        console.log("word not created");
-    } else {
-        console.log("word saved");
-        console.log(item);
-    }
-});
+// addAdventure.save(function(err, item){
+//     if(err){
+//         console.log("word not created");
+//     } else {
+//         console.log("word saved");
+//         console.log(item);
+//     }
+// });
