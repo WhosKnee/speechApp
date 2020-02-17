@@ -129,7 +129,7 @@ $(document).ready(function () {
     var recognized_speech;
 
     function loadClient() {
-        gapi.client.setApiKey("AIzaSyAx6MldUcdZy7j2JAK20UCzp5zLSHpNhbs");
+        gapi.client.setApiKey("");
         return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/speech/v1p1beta1/rest")
             .then(function () { console.log("GAPI client loaded for API"); },
                 function (err) { console.error("Error loading GAPI client for API", err); });
